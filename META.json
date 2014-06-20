@@ -1,0 +1,54 @@
+{
+   "abstract" : "Complete control over CORS",
+   "author" : [
+      "Alex Efros <powerman@cpan.org>"
+   ],
+   "dynamic_config" : 1,
+   "generated_by" : "Module::Build version 0.42",
+   "license" : [
+      "mit"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "Mojolicious-Plugin-SecureCORS",
+   "prereqs" : {
+      "configure" : {
+         "requires" : {
+            "Module::Build" : "0"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "Mojolicious" : "0",
+            "perl" : "5.010001",
+            "version" : "0.77"
+         }
+      },
+      "test" : {
+         "requires" : {
+            "Mojolicious" : "4.63",
+            "Pod::Coverage" : "0.18",
+            "Test::CheckManifest" : "0.9",
+            "Test::More" : "0",
+            "Test::Perl::Critic" : "0",
+            "Test::Pod" : "1.22",
+            "Test::Pod::Coverage" : "1.08"
+         }
+      }
+   },
+   "provides" : {
+      "Mojolicious::Plugin::SecureCORS" : {
+         "file" : "lib/Mojolicious/Plugin/SecureCORS.pm",
+         "version" : "v1.0.0"
+      }
+   },
+   "release_status" : "stable",
+   "resources" : {
+      "license" : [
+         "http://www.opensource.org/licenses/mit-license.php"
+      ]
+   },
+   "version" : "v1.0.0"
+}
