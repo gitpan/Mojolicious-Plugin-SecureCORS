@@ -22,11 +22,11 @@ name: Mojolicious-Plugin-SecureCORS
 provides:
   Mojolicious::Plugin::SecureCORS:
     file: lib/Mojolicious/Plugin/SecureCORS.pm
-    version: v1.0.0
+    version: v1.0.1
 requires:
   Mojolicious: 0
   perl: 5.010001
   version: 0.77
 resources:
   license: http://www.opensource.org/licenses/mit-license.php
-version: v1.0.0
+version: v1.0.1

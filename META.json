@@ -41,7 +41,7 @@
    "provides" : {
       "Mojolicious::Plugin::SecureCORS" : {
          "file" : "lib/Mojolicious/Plugin/SecureCORS.pm",
-         "version" : "v1.0.0"
+         "version" : "v1.0.1"
       }
    },
    "release_status" : "stable",
@@ -50,5 +50,5 @@
          "http://www.opensource.org/licenses/mit-license.php"
       ]
    },
-   "version" : "v1.0.0"
+   "version" : "v1.0.1"
 }

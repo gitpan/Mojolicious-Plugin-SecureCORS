@@ -6,7 +6,7 @@ use utf8;
 use feature ':5.10';
 use Carp;
 
-use version; our $VERSION = qv('1.0.0');    # REMINDER: update Changes
+use version; our $VERSION = qv('1.0.1');    # REMINDER: update Changes
 
 # REMINDER: update dependencies in Build.PL
 use Mojo::Base 'Mojolicious::Plugin';
@@ -246,7 +246,7 @@ workstation in intranet will get access to these resources.
 
 Don't use the lazy C<< 'cors.origin'=>'*' >> for resources which should be
 available only from some known websites - otherwise other malicious website
-will be able to attack your site by injecting JavaScript into the victim’s
+will be able to attack your site by injecting JavaScript into the victim's
 browser.
 
 Consider using C<under_strict_cors()> - it won't "save" you but may helps.
@@ -269,17 +269,17 @@ predefined defaults for their nested routes.
 
 =over
 
-=item * 'cors.origin' => '*'
+=item C<< 'cors.origin' => '*' >>
 
-=item * 'cors.origin' => 'null'
+=item C<< 'cors.origin' => 'null' >>
 
-=item * 'cors.origin' => 'http://example.com'
+=item C<< 'cors.origin' => 'http://example.com' >>
 
-=item * 'cors.origin' => 'https://example.com http://example.com:8080 null'
+=item C<< 'cors.origin' => 'https://example.com http://example.com:8080 null' >>
 
-=item * 'cors.origin' => qr/\.local\z/ms
+=item C<< 'cors.origin' => qr/\.local\z/ms >>
 
-=item * 'cors.origin' => undef (default)
+=item C<< 'cors.origin' => undef >> (default)
 
 This option is required to enable CORS support for the route.
 
@@ -290,9 +290,9 @@ When set to false value no origins will match, so it effectively disable
 CORS support (may be useful if you've set this option value on parent
 route).
 
-=item * 'cors.credentials' => 1
+=item C<< 'cors.credentials' => 1 >>
 
-=item * 'cors.credentials' => undef (default)
+=item C<< 'cors.credentials' => undef >> (default)
 
 While handling preflight request true/false value will tell browser to
 send or not send credentials (cookies, http auth, ssl certificate) with
@@ -301,11 +301,11 @@ actual request.
 While handling simple/actual request if set to false and browser has sent
 credentials will disallow to process returned response.
 
-=item * 'cors.expose' => 'X-Some'
+=item C<< 'cors.expose' => 'X-Some' >>
 
-=item * 'cors.expose' => 'X-Some, X-Other, Server'
+=item C<< 'cors.expose' => 'X-Some, X-Other, Server' >>
 
-=item * 'cors.expose' => undef (default)
+=item C<< 'cors.expose' => undef >> (default)
 
 Allow access to these headers while processing returned response.
 
@@ -318,20 +318,20 @@ These headers doesn't need to be included in this option:
   Last-Modified
   Pragma
 
-=item * 'cors.headers' => 'X-Requested-With'
+=item C<< 'cors.headers' => 'X-Requested-With' >>
 
-=item * 'cors.headers' => 'X-Requested-With, Content-Type, X-Some'
+=item C<< 'cors.headers' => 'X-Requested-With, Content-Type, X-Some' >>
 
-=item * 'cors.headers' => qr/\AX-|\AContent-Type\z/msi
+=item C<< 'cors.headers' => qr/\AX-|\AContent-Type\z/msi >>
 
-=item * 'cors.headers' => undef (default)
+=item C<< 'cors.headers' => undef >> (default)
 
 Define headers which browser is allowed to send. Work only for non-simple
 CORS because it require preflight.
 
-=item * 'cors.methods' => 'POST'
+=item C<< 'cors.methods' => 'POST' >>
 
-=item * 'cors.methods' => 'GET, POST, PUT, DELETE'
+=item C<< 'cors.methods' => 'GET, POST, PUT, DELETE' >>
 
 This option can be used only for C<cors()> route. It's needed in complex
 cases when it's impossible to automatically detect CORS option while
@@ -357,7 +357,7 @@ method given in CORS request. Example:
 
 But in some cases target route can't be detected, for example if you've
 defined several routes for same path using different conditions which
-can't be checked which processing preflight request because browser didn't
+can't be checked while processing preflight request because browser didn't
 sent enough information yet (like C<Content-Type:> value which will be
 used in actual request). In this case you should manually define all
 relevant CORS options on preflight route - in addition to CORS options
@@ -372,7 +372,7 @@ preflight route. Example:
         'cors.credentials'  => 1,
     );
     $r->any([qw(GET POST)] => '/rpc',
-        headers => { 'Content-Type' => 'application/json-rcp' },
+        headers => { 'Content-Type' => 'application/json-rpc' },
     )->to('jsonrpc#handler',
         'cors.origin'       => 'http://localhost',
     );
@@ -396,7 +396,7 @@ for CORS (i.e. won't have C<'cors.origin'> in route's default parameters)
 will be rendered as "403 Forbidden".
 
 This feature should make it harder to attack your site by injecting
-JavaScript into the victim’s browser on vulnerable website. More details:
+JavaScript into the victim's browser on vulnerable website. More details:
 L<https://code.google.com/p/html5security/wiki/CrossOriginRequestSecurity#Processing_rogue_COR:>.
 
 =back
