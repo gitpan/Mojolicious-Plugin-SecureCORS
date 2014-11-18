@@ -14,11 +14,11 @@ my $t = Test::Mojo->new(app);
 plugin 'SecureCORS';
 my $r = app->routes;
 
-$r->get('/' => _text('root'));
+$r->get('/' => {text=>'root'});
 
 my $strict = $r->under_strict_cors('/users/');
-$strict->get({'cors.origin'=>'*'}, _text('list users'));
-$strict->post(_text('add user'));
+$strict->get({'cors.origin'=>'*', text=>'list users'});
+$strict->post({text=>'add user'});
 
 my ($r1, $r2);
 $r = $r->route('/a')->to('cors.headers' => 'X-Requested-With');
@@ -27,9 +27,9 @@ $r = $r->route('/c')->to('cors.credentials' => 1);
 $r1 = $r->route('/d1')->to('cors.credentials' => undef);
 $r2 = $r->route('/d2');
 $r2->cors('(*path)')->to(path=>undef);
-$r1->get('/e1', {'cors.origin'=>'http://localhost null'}, _text('E1'));
-$r2->put('/e2', {'cors.origin'=>qr/\.local\z/}, _text('E2'));
-$r2->get('/e3', _text('E3'));
+$r1->get('/e1', {'cors.origin'=>'http://localhost null', text=>'E1'});
+$r2->put('/e2', {'cors.origin'=>qr/\.local\z/, text=>'E2'});
+$r2->get('/e3', {text=>'E3'});
 
 
 $t->get_ok('/')
@@ -138,10 +138,4 @@ $t->get_ok('/a/b/c/d2/e3', {'Origin'=>'http://ya.local'})
 
 done_testing();
 # app->start('routes');
-
-
-sub _text {
-    my ($text) = @_;
-    return sub { shift->render(text=>$text) };
-}
 

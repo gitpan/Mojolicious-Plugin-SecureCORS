@@ -28,7 +28,7 @@ my $builder = $class->new(
     requires => {
         'perl'                  => 5.010001,
         'version'               => '0.77',
-        'Mojolicious'           => 0,
+        'Mojolicious'           => 5.62,
 #         'Perl6::Export::Attrs'  => 0,
     },
     test_requires => {
@@ -39,7 +39,6 @@ my $builder = $class->new(
         'Test::Pod'             => '1.22',
         'Test::Pod::Coverage'   => '1.08',
         'Pod::Coverage'         => '0.18',
-        'Mojolicious'           => '4.63',
     },
 #     add_to_cleanup     => [ 'Mojolicious-Plugin-SecureCORS-*' ],
 );

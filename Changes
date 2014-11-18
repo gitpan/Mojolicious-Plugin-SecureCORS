@@ -1,5 +1,8 @@
 Revision history for Mojolicious-Plugin-SecureCORS
 
+1.0.2   Tue Nov 18 01:32:39 EET 2014
+	Require Mojolicious-5.62.
+
 1.0.1   Fri Jun 20 13:46:50 EEST 2014
 	Fix typos in doc.
 
