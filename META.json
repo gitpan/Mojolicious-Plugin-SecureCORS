@@ -16,7 +16,7 @@
    "prereqs" : {
       "configure" : {
          "requires" : {
-            "Module::Build" : "0"
+            "Module::Build" : "0.4004"
          }
       },
       "runtime" : {
@@ -40,7 +40,7 @@
    "provides" : {
       "Mojolicious::Plugin::SecureCORS" : {
          "file" : "lib/Mojolicious/Plugin/SecureCORS.pm",
-         "version" : "v1.0.2"
+         "version" : "v1.0.3"
       }
    },
    "release_status" : "stable",
@@ -49,5 +49,5 @@
          "http://www.opensource.org/licenses/mit-license.php"
       ]
    },
-   "version" : "v1.0.2"
+   "version" : "v1.0.3"
 }
